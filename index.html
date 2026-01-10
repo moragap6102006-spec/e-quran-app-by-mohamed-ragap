@@ -439,7 +439,117 @@
                 background-color: #1e293b !important;  
                 color: #ffffff !important;
             }
-           
+
+            .audio-title { color: #16a085; font-size: 1.8rem; margin-bottom: 20px; }
+            .custom-select { padding: 10px; border-radius: 20px; border: 2px solid #16a085; width: 250px; cursor: pointer; }
+            .audio-card { background: white; border-radius: 15px; padding: 25px; margin: 20px auto; max-width: 500px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+
+            body.dark-mode #audio-section { background: transparent !important; }
+            body.dark-mode .audio-card { background: #1e293b !important; color: white; border: 1px solid #334155; }
+            body.dark-mode audio { filter: invert(100%) hue-rotate(180deg) brightness(1.4); }
+
+            nav {
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: flex-start !important; 
+                align-items: center !important;
+                gap: 15px !important;
+                background-color: #16a085 !important;
+                
+                padding: 12px 25px !important; 
+                
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                
+                direction: rtl !important; 
+                overflow-x: auto;
+                white-space: nowrap;
+                width: 100%;
+                box-sizing: border-box;
+                
+                scroll-snap-type: x mandatory; 
+            }
+
+            nav a {
+                color: #ffffff !important;
+                text-decoration: none !important;
+                font-weight: bold;
+                font-size: 1rem;
+                padding: 8px 12px;
+                flex-shrink: 0 !important; 
+                scroll-snap-align: start; 
+            }
+
+            body.dark-mode nav {
+                background-color: #1e293b !important;
+            }
+
+            nav::-webkit-scrollbar {
+                display: none;
+            }
+            nav {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+
+            @media (min-width: 1024px) {
+                nav {
+                    justify-content: center !important;
+                }
+            }
+
+            section, .section-container, div[id] {
+                scroll-margin-top: 80px; 
+                scroll-behavior: smooth; 
+            }
+
+            nav a {
+                color: #ffffff !important;
+                text-decoration: none !important;
+                font-weight: bold;
+                font-size: 1rem;
+                padding: 8px 15px;
+                flex-shrink: 0 !important;
+                
+                scroll-margin: 0 20px; 
+            }
+
+            nav {
+                scroll-behavior: smooth; 
+            }
+
+            section, .section-container {
+                scroll-margin-top: 100px; 
+            }
+
+            #display-azkar {
+                scroll-margin-top: 120px;
+            }
+
+            .zekr-card {
+                scroll-margin-top: 100px;
+                transition: transform 0.3s;
+            }
+
+            nav a {
+                scroll-margin: 0 30px; 
+            }
+
+            #index, .index-container {
+                scroll-margin-top: 130px !important; 
+            }
+
+            nav a {
+                scroll-margin-left: 40px !important;  
+                scroll-margin-right: 40px !important; 
+            }
+
+            nav {
+                padding-right: 40px !important; 
+                padding-left: 40px !important;  
+            }
+
         </style>
 
     </head>
@@ -453,10 +563,11 @@
 
             <div id="progress-bar"></div>
 
-        <nav style="position: sticky; top: 0; background: #ffffff; padding: 15px; display: flex; justify-content: center; gap: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; direction: rtl;">
+        <nav class="main-nav" style="position: sticky; top: 0; background: #ffffff; padding: 15px; display: flex; justify-content: center; gap: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; direction: rtl;">
             <a href="#tasbeeh-section" style="text-decoration: none; color: #000000;  font-weight: bold;">تسبيح</a>
-                         <a href="#azkar-section">الأذكار</a>
-            <a href="#" style="text-decoration: none; color: #333; font-weight: bold;">الفهرس</a>
+                <a href="#azkar-section" class="nav-item" style="text-decoration: none; color: #000000;  font-weight: bold;">📿 الأذكار</a>
+            <a href="#index" style="text-decoration: none; color: #333; font-weight: bold;">الفهرس</a>
+            <a href="#audio-section" class="nav-item audio-link">🎧 المصحف الصوتي</a>
             <a href="#footer" style="text-decoration: none; color: #333; font-weight: bold;">تواصل معنا</a>
             <a href="javascript:void(0);" onclick="shareSite()" style="text-decoration: none; color: #d4af37; font-weight: bold;">📢 انشر تؤجر</a>
             <a href="javascript:void(0);" onclick="toggleFullScreen()" style="text-decoration: none; color: #000; font-weight: bold;">🖼️ ملء الشاشة</a>
@@ -482,7 +593,7 @@
             <div id="main-index" style="background: #fff; border: 1px solid #ddd; padding: 20px; margin: 20px auto; width: 90%; max-width: 800px; border-radius: 15px; direction: rtl; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
     <h2 style="text-align: center; color: #2c3e50; border-bottom: 2px solid #d4af37; padding-bottom: 10px; font-family: sans-serif;">فهرس الأجزاء</h2>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; margin-top: 20px;">
+    <div id="index" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; margin-top: 20px;">
         <a href="#part1" style="text-decoration: none; background: #f8f9fa; color: #333; padding: 10px; text-align: center; border-radius: 8px; font-weight: bold; border: 1px solid #eee; font-size: 14px;">1</a>
         <a href="#part2" style="text-decoration: none; background: #f8f9fa; color: #333; padding: 10px; text-align: center; border-radius: 8px; font-weight: bold; border: 1px solid #eee; font-size: 14px;">2</a>
         <a href="#part3" style="text-decoration: none; background: #f8f9fa; color: #333; padding: 10px; text-align: center; border-radius: 8px; font-weight: bold; border: 1px solid #eee; font-size: 14px;">3</a>
@@ -1751,6 +1862,39 @@
                 </div>
         </details>
 
+    <section id="audio-section" class="section-container" style="text-align: center; padding: 40px 20px;">
+        <h2 class="audio-title" style="color: #16a085; margin-bottom: 20px; font-family: 'Amiri', serif;">🎧 المصحف الصوتي الجامع</h2>
+        
+        <div class="selection-wrapper" style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
+            
+            <label for="reader-select" style="font-weight: bold; font-size: 1.1rem;">اختر القارئ المفضل:</label>
+            <select id="reader-select" class="custom-select">
+                <option value="https://server8.mp3quran.net/afs/">مشاري العفاسي</option>
+                <option value="https://server11.mp3quran.net/yasser/">ياسر الدوسري</option>
+                <option value="https://server12.mp3quran.net/maher/">ماهر المعيقلي</option>
+                <option value="https://server10.mp3quran.net/minsh/">محمد صديق المنشاوي</option>
+                <option value="https://server13.mp3quran.net/husr/">محمود خليل الحصري</option>
+                <option value="https://server7.mp3quran.net/basit/">عبد الباسط عبد الصمد</option>
+                <option value="https://server10.mp3quran.net/ajm/">أحمد العجمي</option>
+            </select>
+
+            <label for="surah-select" style="font-weight: bold; font-size: 1.1rem;">اختر السورة:</label>
+            <select id="surah-select" class="custom-select" style="padding: 12px; border-radius: 10px; border: 2px solid #16a085; background: white; font-size: 1rem; cursor: pointer;">
+                </select>
+
+            <button onclick="playSelectedAudio()" class="play-btn" style="background-color: #16a085; color: white; border: none; padding: 15px; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 1.1rem; margin-top: 10px; transition: 0.3s; box-shadow: 0 4px 10px rgba(22, 160, 133, 0.3);">
+                ▶ تشغيل السورة المختارة
+            </button>
+        </div>
+
+        <div class="audio-card" style="margin-top: 30px; background: #ffffff; padding: 25px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); max-width: 550px; margin-left: auto; margin-right: auto;">
+            <p id="playing-status" style="margin-bottom: 20px; font-weight: bold; color: #555; font-size: 1rem;">اختر القارئ والسورة ثم اضغط تشغيل</p>
+            <audio id="main-player" controls style="width: 100%; height: 50px;">
+                متصفحك لا يدعم مشغل الصوت.
+            </audio>
+        </div>
+    </section>
+
         <button id="backToTop" title="العودة للأعلى" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99; border: none; outline: none; background-color: #2c3e50; color: white; cursor: pointer; padding: 15px; border-radius: 50%; font-size: 18px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
   ↑
         </button>
@@ -1783,152 +1927,172 @@
         </footer>
 
         <script>
+            let count = 0;
+            let wordIndex = 0;
+            const words = ["سُبْحَانَ اللَّهِ", "الْحَمْدُ لِلَّهِ", "لَا إِلَهَ إِلَّا اللَّهُ", "اللَّهُ أَكْبَرُ", "اللهم صلي و سلم و بارك علي سيدنا محمد ", "سبحان الله و بحمده", "سبحان الله العظيم", "سبحان الله و الحمد لله", "سبحان الله العظيم و بحمده", "سبحان الله وبحمده سبحان الله العظيم", "لا الله الا الله وحده لا شريك له له الملك و له الحمد و هوا علي كل شئ قدير", "لا حول ولا قوة الا بالله", "الحمد لله رب العالمين", "استغفر الله", "سبحان الله و الحمد لله و الله اكبر", "لا اله الا الله", "الله أكبر", "الحمد لله حمدا كثيرا طيبا مباركا فيه", "الله أكبر كبيرا و الحمد لله كثيرا و سبحان الله بكرة و اصيلا", "الهم صلي علي محمد و علي ال محمد كما صليت علي ابراهيم و علي ال ابراهيم انك حميد مجيد اللهم بارك علي محمد و علي ال محمد كما باركت علي ابرهيم و علي ال ابراهيم في العالمين انك حميد مجيد"];
+
+            const allSurahs = ["الفاتحة", "البقرة", "آل عمران", "النساء", "المائدة", "الأنعام", "الأعراف", "الأنفال", "التوبة", "يونس", "هود", "يوسف", "الرعد", "إبراهيم", "الحجر", "النحل", "الإسراء", "الكهف", "مريم", "طه", "الأنبياء", "الحج", "المؤمنون", "النور", "الفرقان", "الشعراء", "النمل", "القصص", "العنكبوت", "الروم", "لقمان", "السجدة", "الأحزاب", "سبأ", "فاطر", "يس", "الصافات", "ص", "الزمر", "غافر", "فصلت", "الشورى", "الزخرف", "الدخان", "الجاثية", "الأحقاف", "محمد", "الفتح", "الحجرات", "ق", "الذاريات", "الطور", "النجم", "القمر", "الرحمن", "الواقعة", "الحديد", "المجادلة", "الحشر", "الممتحنة", "الصف", "الجمعة", "المنافقون", "التغابن", "الطلاق", "التحريم", "الملك", "القلم", "الحاقة", "المعارج", "نوح", "الجن", "المزمل", "المدثر", "القيامة", "الإنسان", "المرسلات", "النبأ", "النازعات", "عبس", "التكوير", "الانفطار", "المطففين", "الانشقاق", "البروج", "الطارق", "الأعلى", "الغاشية", "الفجر", "البلد", "الشمس", "الليل", "الضحى", "الشرح", "التين", "العلق", "القدر", "البينة", "الزلزلة", "العاديات", "القارعة", "التكاثر", "العصر", "الهمزة", "الفيل", "قريش", "الماعون", "الكوثر", "الكافرون", "النصر", "المسد", "الإخلاص", "الفلق", "الناس"];
+
+            window.onload = function () {
+                if (localStorage.getItem('theme') === 'dark') {
+                    document.body.classList.add('dark-mode');
+                    const btn = document.getElementById('darkModeToggle');
+                    if (btn) btn.innerHTML = '☀️';
+                }
+
+                getRandomAyah();
+
+                let msg = new SpeechSynthesisUtterance("صلى على سيدنا محمد");
+                msg.lang = 'ar-SA';
+                window.speechSynthesis.speak(msg);
+
+                const surahSelect = document.getElementById('surah-select');
+                if (surahSelect) {
+                    allSurahs.forEach((name, index) => {
+                        let option = document.createElement('option');
+                        option.value = index + 1;
+                        option.text = `${index + 1} - ${name}`;
+                        surahSelect.appendChild(option);
+                    });
+                }
+            };
+
             function toggleDarkMode() {
                 const body = document.body;
                 body.classList.toggle('dark-mode');
+                const btn = document.getElementById('darkModeToggle');
 
                 if (body.classList.contains('dark-mode')) {
                     localStorage.setItem('theme', 'dark');
-                    document.getElementById('darkModeToggle').innerHTML = '☀️'; 
+                    if (btn) btn.innerHTML = '☀️';
                 } else {
                     localStorage.setItem('theme', 'light');
-                    document.getElementById('darkModeToggle').innerHTML = '🌙'; 
+                    if (btn) btn.innerHTML = '🌙';
                 }
             }
 
-            window.onload = function() {
-                if (localStorage.getItem('theme') === 'dark') {
-                    document.body.classList.add('dark-mode');
-                    document.getElementById('darkModeToggle').innerHTML = '☀️';
+            function toggleFullScreen() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                } else {
+                    if (document.exitFullscreen) document.exitFullscreen();
                 }
-            };
+            }
 
-            let count = 0;
-            const words = ["سُبْحَانَ اللَّهِ", "الْحَمْدُ لِلَّهِ", "لَا إِلَهَ إِلَّا اللَّهُ", "اللَّهُ أَكْبَرُ","اللهم صلي و سلم و بارك  علي  سيدنا محمد ","سبحان الله و بحمده","سبحان الله العظيم","سبحان الله و الحمد لله","سبحان الله العظيم و بحمده","سبحان الله وبحمده سبحان الله العظيم","لا الله الا الله وحده لا شريك له له الملك و له الحمد و هوا علي كل شئ قدير","لا حول ولا قوة الا بالله","الحمد لله رب العالمين","استغفر الله","سبحان الله و الحمد لله و الله اكبر","لا اله الا الله","الله أكبر","الحمد لله حمدا كثيرا طيبا مباركا فيه","الله أكبر كبيرا و الحمد لله كثيرا و سبحان الله بكرة و اصيلا","الهم صلي علي محمد و علي ال محمد كما صليت علي ابراهيم و علي ال ابراهيم انك حميد مجيد اللهم بارك علي محمد و علي ال محمد كما باركت علي ابرهيم و علي ال ابراهيم في العالمين انك حميد مجيد"];
-            let wordIndex = 0;
-
-        function countUp() {
+            function countUp() {
                 count++;
                 document.getElementById("counter").innerText = count;
-    
-            if (count % 33 === 0) {
-                wordIndex = (wordIndex + 1) % words.length;
-                document.getElementById("tasbeeh-text").innerText = words[wordIndex];
-             if (navigator.vibrate) navigator.vibrate(50);
-            }
-        }
 
-        function resetCounter() {
-            count = 0;
-            wordIndex = 0;
-            document.getElementById("counter").innerText = count;
-            document.getElementById("tasbeeh-text").innerText = words[0];
-        }
-
-        function shareSite() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'المصحف الإلكتروني',
-                    text: 'اقرأ القرآن الكريم وسبح من خلال هذا الموقع المميز',
-                    url: window.location.href
-                });
-            } else {
-                alert("انسخ الرابط وشاركه مع أصدقائك: " + window.location.href);
-            }
-        }
-        
-        function toggleFullScreen() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
-            } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            }
-            }
+                if (count % 33 === 0) {
+                    wordIndex = (wordIndex + 1) % words.length;
+                    document.getElementById("tasbeeh-text").innerText = words[wordIndex];
+                    if (navigator.vibrate) navigator.vibrate(50);
+                }
             }
 
-            window.onscroll = function() {
-                let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                let scrolled = (winScroll / height) * 100;
-                document.getElementById("progress-bar").style.width = scrolled + "%";
-            };
+            function resetCounter() {
+                count = 0;
+                wordIndex = 0;
+                document.getElementById("counter").innerText = count;
+                document.getElementById("tasbeeh-text").innerText = words[0];
+            }
 
-                window.onscroll = function() {
+            window.onscroll = function () {
                 let btn = document.getElementById("backToTop");
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                btn.style.display = "block";
-            } else {
-                btn.style.display = "none";
-            }
-    
                 let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
                 let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 let scrolled = (winScroll / height) * 100;
-                if(document.getElementById("progress-bar")) {
-                    document.getElementById("progress-bar").style.width = scrolled + "%";
+
+                const progressBar = document.getElementById("progress-bar");
+                if (progressBar) progressBar.style.width = scrolled + "%";
+
+                if (btn) {
+                    btn.style.display = (winScroll > 300) ? "block" : "none";
                 }
             };
 
-                    async function getRandomAyah() {
-                    const randomAyahNumber = Math.floor(Math.random() * 6236) + 1;
-    
+            function playSelectedAudio() {
+                const readerSelect = document.getElementById('reader-select');
+                const surahSelect = document.getElementById('surah-select');
+                const player = document.getElementById('main-player');
+                const status = document.getElementById('playing-status');
+
+                if (!player || !readerSelect || !surahSelect) return;
+
+                const readerUrl = readerSelect.value;
+                const surahNum = surahSelect.value;
+                const surahName = surahSelect.options[surahSelect.selectedIndex].text;
+                const formattedNum = surahNum.toString().padStart(3, '0');
+
+                player.pause();
+                player.src = `${readerUrl}${formattedNum}.mp3`;
+                player.load(); 
+
+                player.play()
+                    .then(() => {
+                        status.innerText = "🔊 جاري استماع: " + surahName;
+                        status.style.color = "#16a085";
+                    })
+                    .catch(error => {
+                        console.error("خطأ:", error);
+                        status.innerText = "❌ عذراً، هذا القارئ لا يملك هذه السورة حالياً.";
+                        status.style.color = "red";
+                    });
+            }
+
+            async function getRandomAyah() {
+                const randomAyahNumber = Math.floor(Math.random() * 6236) + 1;
                 try {
-                const response = await fetch(`https://api.alquran.cloud/v1/ayah/${randomAyahNumber}/ar.alafasy`);
-                const data = await response.json();
-        
-                    document.getElementById('ayah-text')  .innerText = data.data.text;
-                    document.getElementById('surah-info').innerText = `${data.data.surah.name} - آية ${data.data.numberInSurah}`;
-                    document.getElementById('ayah-text').innerHTML = `&#10077; ${data.data.text} &#10078;`;
+                    const response = await fetch(`https://api.alquran.cloud/v1/ayah/${randomAyahNumber}/ar.alafasy`);
+                    const data = await response.json();
+                    const ayahBox = document.getElementById('ayah-text');
+                    const infoBox = document.getElementById('surah-info');
+
+                    if (ayahBox) ayahBox.innerHTML = `&#10077; ${data.data.text} &#10078;`;
+                    if (infoBox) infoBox.innerText = `${data.data.surah.name} - آية ${data.data.numberInSurah}`;
                 } catch (error) {
                     console.log("خطأ في جلب الآية:", error);
                 }
+            }
+
+            const azkarData = {
+                morning: ["أصبحنا وأصبح الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له.", "اللهم بك أصبحنا، وبك أمسينا، وبك نحيا، وبك نموت، وإليك النشور.", "أعوذ بكلمات الله التامات من شر ما خلق (3 مرات).", "بسم الله الذي لا يضر مع اسمه شيء في الأرض ولا في السماء وهو السميع العليم (3 مرات).", "يا حي يا قيوم برحمتك أستغيث أصلح لي شأني كله ولا تكلني إلى نفسي طرفة عين."],
+                evening: ["أمسينا وأمسى الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له.", "اللهم بك أمسينا، وبك أصبحنا، وبك نحيا، وبك نموت، وإليك المصير.", "أمسيت أثني عليك حمداً، وأشهد أن لا إله إلا الله.", "اللهم ما أمسى بي من نعمة أو بأحد من خلقك فمنك وحدك لا شريك لك.", "رضيت بالله رباً، وبالإسلام ديناً، وبمحمد صلى الله عليه وسلم نبياً."]
+            };
+
+            let activeType = null;
+            function showAzkar(type) {
+                const display = document.getElementById('display-azkar');
+                if (!display) return;
+
+                if (activeType === type) {
+                    display.innerHTML = "اختر أذكار الصباح أو المساء لتبدأ القراءة";
+                    activeType = null;
+                } else {
+                    display.innerHTML = azkarData[type].map(zekr => `<div class="zekr-card">${zekr}</div>`).join('');
+                    activeType = type;
+                    display.scrollIntoView({ behavior: 'smooth' });
                 }
+            }
 
-                window.onload = getRandomAyah;
-
-                window.onload = function() {
-                    let msg = new SpeechSynthesisUtterance("صلى على سيدنا محمد");
-                    msg.lang = 'ar-SA'; 
-                    window.speechSynthesis.speak(msg);
-                };
-
-               const azkarData = {
-                    morning: [
-                        "أصبحنا وأصبح الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له.",
-                        "اللهم بك أصبحنا، وبك أمسينا، وبك نحيا، وبك نموت، وإليك النشور.",
-                        "أعوذ بكلمات الله التامات من شر ما خلق (3 مرات).",
-                        "بسم الله الذي لا يضر مع اسمه شيء في الأرض ولا في السماء وهو السميع العليم (3 مرات).",
-                        "يا حي يا قيوم برحمتك أستغيث أصلح لي شأني كله ولا تكلني إلى نفسي طرفة عين."
-                    ],
-                    evening: [
-                        "أمسينا وأمسى الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له.",
-                        "اللهم بك أمسينا، وبك أصبحنا، وبك نحيا، وبك نموت، وإليك المصير.",
-                        "أمسيت أثني عليك حمداً، وأشهد أن لا إله إلا الله.",
-                        "اللهم ما أمسى بي من نعمة أو بأحد من خلقك فمنك وحدك لا شريك لك.",
-                        "رضيت بالله رباً، وبالإسلام ديناً، وبمحمد صلى الله عليه وسلم نبياً."
-                    ]
-                };
-
-                let activeType = null; 
-
-                function showAzkar(type) {
-                    const display = document.getElementById('display-azkar');
-                    
-                    if (activeType === type) {
-                        display.innerHTML = "اختر أذكار الصباح أو المساء لتبدأ القراءة";
-                        activeType = null;
-                    } else {
-                        display.innerHTML = azkarData[type].map(zekr => `
-                            <div class="zekr-card">
-                                ${zekr}
-                            </div>
-                        `).join('');
-                        activeType = type;
-                        
-                        display.scrollIntoView({ behavior: 'smooth' });
-                    }
+            function shareSite() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'المصحف الإلكتروني',
+                        text: 'اقرأ القرآن الكريم وسبح من خلال هذا الموقع المميز',
+                        url: window.location.href
+                    });
+                } else {
+                    alert("انسخ الرابط وشاركه مع أصدقائك: " + window.location.href);
                 }
+            }
+
+            const offset = 100;
+            const elementPosition = display.getBoundingClientRect().top + window.pageYOffset;
+            window.scrollTo({
+                top: elementPosition - offset,
+                behavior: 'smooth'
+            });
 
         </script>
 
