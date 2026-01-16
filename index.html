@@ -267,50 +267,78 @@
             }
 
             nav {
-                position: sticky;
-                top: 0;
-                z-index: 1000;
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: flex-start !important;
+            align-items: center !important;
+            gap: 15px !important;
 
-                display: flex;
-                align-items: center;
-                gap: 15px;
+            background-color: #16a085 !important;
+            padding: 12px 25px !important;
 
-                padding: 12px 20px;
-                background-color: #16a085;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
 
-                direction: rtl;
+            direction: rtl !important;
+            overflow-x: auto;
+            white-space: nowrap;
+            width: 100%;
+            box-sizing: border-box;
+            scroll-snap-type: x mandatory;
 
-                overflow-x: auto;
-                overflow-y: hidden;
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none;    /* Firefox */
+        }
 
-                white-space: nowrap;
+        nav a {
+            color: #ffffff !important;
+            text-decoration: none !important;
+            font-weight: bold;
+            font-size: 1rem;
+            padding: 8px 12px;
+            flex-shrink: 0 !important;
+            scroll-snap-align: start;
+            scroll-margin-left: 40px !important;
+            scroll-margin-right: 40px !important;
+        }
 
-                -webkit-overflow-scrolling: touch;
+        nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        body.dark-mode nav {
+            background-color: #1e293b !important;
+        }
+
+        @media (min-width: 1024px) {
+            nav {
+                justify-content: center !important;
             }
+        }
 
-            nav a {
-                flex: 0 0 auto;
+        /* المسافات عند scroll */
+        section, .section-container, div[id] {
+            scroll-margin-top: 80px;
+            scroll-behavior: smooth;
+        }
 
-                color: #ffffff;
-                text-decoration: none;
-                font-weight: bold;
-                font-size: 1rem;
+        section, .section-container {
+            scroll-margin-top: 100px;
+        }
 
-                padding: 8px 15px;
-                border-radius: 8px;
-            }
+        #display-azkar {
+            scroll-margin-top: 120px;
+        }
 
-            nav::-webkit-scrollbar {
-                display: none;
-            }
+        .zekr-card {
+            scroll-margin-top: 100px;
+            transition: transform 0.3s;
+        }
 
-            @media (min-width: 1024px) {
-                nav {
-                    justify-content: center;
-                    overflow-x: visible;
-                }
-            }
-
+        #index, .index-container {
+            scroll-margin-top: 130px !important;
+        }
 
             section,
             details,
