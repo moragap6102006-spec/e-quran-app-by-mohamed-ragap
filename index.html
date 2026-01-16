@@ -299,6 +299,76 @@
                 }
             }
 
+            nav {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+
+                background-color: #16a085;
+                padding: 12px 16px;
+
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+
+                direction: rtl;
+
+                overflow-x: auto;
+                overflow-y: hidden;
+                white-space: nowrap;
+
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+
+                -webkit-overflow-scrolling: touch;
+
+                box-shadow:
+                    inset 15px 0 10px -15px rgba(0,0,0,0.25),
+                    inset -15px 0 10px -15px rgba(0,0,0,0.25);
+            }
+
+            nav a {
+                color: #ffffff;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 1rem;
+
+                padding: 8px 14px;
+                border-radius: 8px;
+
+                flex-shrink: 0;
+
+                transition: background 0.3s, color 0.3s;
+            }
+
+            nav a:active {
+                background-color: rgba(255, 255, 255, 0.25);
+            }
+
+            nav::-webkit-scrollbar {
+                display: none;
+            }
+
+            nav {
+                scrollbar-width: none;
+            }
+
+            nav::before,
+            nav::after {
+                content: '';
+                min-width: 12px;
+            }
+
+            @media (min-width: 1024px) {
+                nav {
+                    justify-content: center;
+                    overflow-x: visible;
+                    box-shadow: none;
+                }
+            }
+
+
             section,
             details,
             [id] {
