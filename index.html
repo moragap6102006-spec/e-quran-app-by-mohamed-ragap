@@ -365,10 +365,10 @@
             <a href="javascript:void(0);" onclick="toggleFullScreen()" style="text-decoration: none; color: #000; font-weight: bold;">🖼️ ملء الشاشة</a>
         </nav>
 
-               <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-            style="display: none; position: fixed; bottom: 30px; left: 30px; background: #d4af37; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999; transition: 0.3s;">
-            ↑
-        </button>
+            <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+                style="display: none; position: fixed; bottom: 30px; left: 30px; background: #d4af37; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999; transition: 0.3s;">
+                ↑
+            </button>
 
         <div id="tasbeeh-section" style="background: #fdf6e3; border: 2px solid #d4af37; padding: 20px; margin: 20px auto; width: 80%; max-width: 300px; text-align: center; border-radius: 50px; direction: rtl;">
             <p id="tasbeeh-text" style="font-size: 20px; color: #333; margin-bottom: 10px;">سُبْحَانَ اللَّهِ</p>
@@ -1878,17 +1878,18 @@
             });
 
             const audioBtn = document.getElementById("go-to-audio");
-audioBtn.addEventListener("click", () => {
-  const audioSection = document.getElementById("audio-section");
-  const navHeight = document.querySelector(".main-nav").offsetHeight; // ارتفاع الـ nav
+                audioBtn.addEventListener("click", () => {
+            const audioSection = document.getElementById("audio-section");
+            const navHeight = document.querySelector(".main-nav").offsetHeight; 
 
-  const sectionPos = audioSection.getBoundingClientRect().top + window.scrollY - navHeight;
+            const sectionPos = audioSection.getBoundingClientRect().top + window.scrollY - navHeight;
 
-  window.scrollTo({
-    top: sectionPos,
-    behavior: "smooth"
-  });
-});
+            window.scrollTo({
+                top: sectionPos,
+                behavior: "smooth"
+            });
+            });
+
 
 
         </script>
