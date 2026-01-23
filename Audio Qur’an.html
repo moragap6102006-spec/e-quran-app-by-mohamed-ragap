@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+    <html lang="ar">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>المصحف الصوتي</title>
+            <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+
+            <style>
+                body {
+                    font-family: 'Amiri', serif;
+                    background-color: #f5f5f5;
+                    color: #333;
+                    margin: 0;
+                    padding: 20px;
+                    transition: background 0.3s, color 0.3s;
+                }
+
+                .section-container {
+                    max-width: 650px;
+                    margin: 40px auto;
+                    padding: 25px;
+                    background-color: #ffffff;
+                    border-radius: 15px;
+                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                    text-align: center;
+                }
+
+                h2 {
+                    color: #16a085;
+                    margin-bottom: 20px;
+                }
+
+                label {
+                    font-weight: bold;
+                    display: block;
+                    margin: 15px 0 5px 0;
+                    color: #16a085;
+                }
+
+                select, button {
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 1rem;
+                    border-radius: 8px;
+                    border: 2px solid #16a085;
+                    margin: 10px 0;
+                    cursor: pointer;
+                    transition: 0.3s;
+                }
+
+                #playBtn {
+                    background-color: #16a085;
+                    color: white;
+                }
+
+                #playBtn:hover { opacity: 0.9; }
+
+                #repeatBtn {
+                    background-color: #f39c12;
+                    color: white;
+                }
+
+                #repeatBtn:hover { opacity: 0.9; }
+
+                audio {
+                    width: 100%;
+                    margin-top: 15px;
+                }
+
+                .source-note {
+                    font-size: 0.85rem;
+                    color: gray;
+                    margin-top: 10px;
+                }
+
+                @media (max-width: 600px) {
+                    .section-container {
+                        padding: 20px;
+                    }
+
+                    select, button {
+                        font-size: 0.9rem;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+
+            <section class="section-container" id="Audio Qur’an">
+            <h2>🎧 المصحف الصوتي</h2>
+
+            <label for="reader-select" >اختر القارئ:</label>
+            <select id="reader-select" >
+                <option value="https://server8.mp3quran.net/afs/">مشاري العفاسي</option>
+                <option value="https://server11.mp3quran.net/yasser/">ياسر الدوسري</option>
+                <option value="https://server12.mp3quran.net/maher/">ماهر المعيقلي</option>
+                <option value="https://server10.mp3quran.net/minsh/">المنشاوي</option>
+                <option value="https://server7.mp3quran.net/basit/">عبد الباسط عبد الصمد</option>
+                <option value="https://server10.mp3quran.net/ajm/">أحمد العجمي</option>
+                <option value="https://server6.mp3quran.net/akdr/">إبراهيم الأكدر</option>
+                <option value="https://server13.mp3quran.net/husr/">محمود خليل الحصري</option>
+            </select>
+            <label for="surah-select">اختر السورة:</label>
+            <select id="surah-select">
+                <option value="001">الفاتحة</option>
+                <option value="002">البقرة</option>
+                <option value="003">آل عمران</option>
+                <option value="004">النساء</option>
+                <option value="005">المائدة</option>
+                <option value="006">الأنعام</option>
+                <option value="007">الأعراف</option>
+                <option value="008">الأنفال</option>
+                <option value="009">التوبة</option>
+                <option value="010">يونس</option>
+                <option value="011">هود</option>
+                <option value="012">يوسف</option>
+                <option value="013">الرعد</option>
+                <option value="014">ابراهيم</option>
+                <option value="015">الحجر</option>
+                <option value="016">النحل</option>
+                <option value="017">الإسراء</option>
+                <option value="018">الكهف</option>
+                <option value="019">مريم</option>
+                <option value="020">طه</option>
+                <option value="021">الأنبياء</option>
+                <option value="022">الحج</option>
+                <option value="023">المؤمنون</option>
+                <option value="024">النور</option>
+                <option value="025">الفرقان</option>
+                <option value="026">الشعراء</option>
+                <option value="027">النمل</option>
+                <option value="028">القصص</option>
+                <option value="029">العنكبوت</option>
+                <option value="030">الروم</option>
+                <option value="031">لقمان</option>
+                <option value="032">السجدة</option>
+                <option value="033">الأحزاب</option>
+                <option value="034">سبإ</option>
+                <option value="035">فاطر</option>
+                <option value="036">يس</option>
+                <option value="037">الصافات</option>
+                <option value="038">ص</option>
+                <option value="039">الزمر</option>
+                <option value="040">غافر</option>
+                <option value="041">فصلت</option>
+                <option value="042">الشورى</option>
+                <option value="043">الزخرف</option>
+                <option value="044">الدخان</option>
+                <option value="045">الجاثية</option>
+                <option value="046">الأحقاف</option>
+                <option value="047">محمد</option>
+                <option value="048">الفتح</option>
+                <option value="049">الحجرات</option>
+                <option value="050">ق</option>
+                <option value="051">الذاريات</option>
+                <option value="052">الطور</option>
+                <option value="053">النجم</option>
+                <option value="054">القمر</option>
+                <option value="055">الرحمن</option>
+                <option value="056">الواقعة</option>
+                <option value="057">الحديد</option>
+                <option value="058">المجادلة</option>
+                <option value="059">الحشر</option>
+                <option value="060">الممتحنة</option>
+                <option value="061">الصف</option>
+                <option value="062">الجمعة</option>
+                <option value="063">المنافقون</option>
+                <option value="064">التغابن</option>
+                <option value="065">الطلاق</option>
+                <option value="066">التحريم</option>
+                <option value="067">الملك</option>
+                <option value="068">القلم</option>
+                <option value="069">الحاقة</option>
+                <option value="070">المعارج</option>
+                <option value="071">نوح</option>
+                <option value="072">الجن</option>
+                <option value="073">المزمل</option>
+                <option value="074">المدثر</option>
+                <option value="075">القيامة</option>
+                <option value="076">الإنسان</option>
+                <option value="077">المرسلات</option>
+                <option value="078">النبأ</option>
+                <option value="079">النازعات</option>
+                <option value="080">عبس</option>
+                <option value="081">التكوير</option>
+                <option value="082">الانفطار</option>
+                <option value="083">المطففين</option>
+                <option value="084">الانشقاق</option>
+                <option value="085">البروج</option>
+                <option value="086">الطارق</option>
+                <option value="087">الأعلى</option>
+                <option value="088">الغاشية</option>
+                <option value="089">الفجر</option>
+                <option value="090">البلد</option>
+                <option value="091">الشمس</option>
+                <option value="092">الليل</option>
+                <option value="093">الضحى</option>
+                <option value="094">الشرح</option>
+                <option value="095">التين</option>
+                <option value="096">العلق</option>
+                <option value="097">القدر</option>
+                <option value="098">البينة</option>
+                <option value="099">الزلزلة</option>
+                <option value="100">العاديات</option>
+                <option value="101">القارعة</option>
+                <option value="102">التكاثر</option>
+                <option value="103">العصر</option>
+                <option value="104">الهمزة</option>
+                <option value="105">الفيل</option>
+                <option value="106">قريش</option>
+                <option value="107">الماعون</option>
+                <option value="108">الكوثر</option>
+                <option value="109">الكافرون</option>
+                <option value="110">النصر</option>
+                <option value="111">المسد</option>
+                <option value="112">الإخلاص</option>
+                <option value="113">الفلق</option>
+                <option value="114">الناس</option>
+            </select>
+            </select>
+
+            <button id="playBtn">▶ تشغيل السورة المختارة</button>
+            <button id="repeatBtn">🔁 تكرار: إيقاف</button>
+
+            <audio id="main-player" controls></audio>
+            <p class="source-note">الصوت من إذاعة القرآن الكريم</p>
+            <button id="backBtn" onclick="window.location.href='index.html';" style="background-color: #16a085; color: white;
+            cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" id="azkar-btn" >
+            ⬅️ رجوع للصفحة الرئيسية
+            </button>
+        </section>
+
+    <script>
+        function resetCounter() {
+            count = 0;
+            wordIndex = 0;
+            document.getElementById("counter").innerText = count;
+            document.getElementById("tasbeeh-text").innerText = words[0];
+        }
+
+        window.onscroll = function () {
+            let btn = document.getElementById("backToTop");
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+
+            const progressBar = document.getElementById("progress-bar");
+            if (progressBar) progressBar.style.width = scrolled + "%";
+
+            if (btn) {
+                btn.style.display = (winScroll > 300) ? "block" : "none";
+            }
+        };
+
+        const player = document.getElementById("main-player");
+        const surahSelect = document.getElementById("surah-select");
+        const readerSelect = document.getElementById("reader-select");
+        const playBtn = document.getElementById("playBtn");
+        const repeatBtn = document.getElementById("repeatBtn");
+
+        let currentSurahIndex = 0;
+        let isRepeat = false;
+
+        playBtn.addEventListener("click", () => {
+        currentSurahIndex = surahSelect.selectedIndex;
+        playSurah(currentSurahIndex);
+        });
+
+        repeatBtn.addEventListener("click", () => {
+        isRepeat = !isRepeat;
+        repeatBtn.textContent = isRepeat ? "🔁 تكرار: تشغيل" : "🔁 تكرار: إيقاف";
+        });
+
+        function playSurah(index) {
+        const readerUrl = readerSelect.value;
+        const surahNum = surahSelect.options[index].value.toString().padStart(3, "0");
+        player.src = `${readerUrl}${surahNum}.mp3`;
+        player.play();
+        }
+
+        player.addEventListener("ended", () => {
+        if (isRepeat) {
+            player.currentTime = 0;
+            player.play();
+        } else {
+            if (currentSurahIndex < surahSelect.options.length - 1) {
+            currentSurahIndex++;
+            surahSelect.selectedIndex = currentSurahIndex;
+            playSurah(currentSurahIndex);
+            }
+        }
+        });
+
+        async function getRandomAyah() {
+            const randomAyahNumber = Math.floor(Math.random() * 6236) + 1;
+            try {
+                const response = await fetch(`https://api.alquran.cloud/v1/ayah/${randomAyahNumber}/ar.alafasy`);
+                const data = await response.json();
+                const ayahBox = document.getElementById('ayah-text');
+                const infoBox = document.getElementById('surah-info');
+
+                if (ayahBox) ayahBox.innerHTML = `&#10077; ${data.data.text} &#10078;`;
+                if (infoBox) infoBox.innerText = `${data.data.surah.name} - آية ${data.data.numberInSurah}`;
+            } catch (error) {
+                console.log("خطأ في جلب الآية:", error);
+            }
+        }
+    </script>
+
+    </body>
+    </html>

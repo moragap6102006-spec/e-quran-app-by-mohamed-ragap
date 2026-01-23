@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أذكار</title>
+
+    <style>
+        body {
+            font-family: Tahoma, Arial;
+            background: #f5f7fa;
+        }
+
+        #azkar-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .azkar-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .btn-azkar {
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: #16a085;
+            color: white;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-azkar:hover {
+            transform: translateY(-3px);
+            background: #1abc9c;
+        }
+
+        .zekr-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-right: 5px solid #16a085;
+            text-align: right;
+            line-height: 1.9;
+            font-size: 16px;
+        }
+
+        .section-container {
+            max-width: 700px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="tasbeeh-section" style="background:#fdf6e3;border:2px solid #d4af37;padding:20px;margin:20px auto;width:80%;max-width:300px;text-align:center;border-radius:50px;">
+    <p id="tasbeeh-text" style="font-size:20px;">سُبْحَانَ اللَّهِ</p>
+    <div id="counter" style="font-size:40px;font-weight:bold;color:#d4af37;">0</div>
+
+    <button onclick="countUp()" style="background:#d4af37;color:white;border:none;padding:15px;border-radius:25px;width:100%;font-size:18px;">
+        اضغط للتسبيح
+    </button>
+
+    <button onclick="resetCounter()" style="background:none;border:none;margin-top:10px;color:#777;text-decoration:underline;">
+        تصفير العداد
+    </button>
+</div>
+
+<section id="azkar-section" class="section-container">
+    <div class="azkar-buttons">
+        <button onclick="showAzkar('morning')" class="btn-azkar">أذكار الصباح</button>
+        <button onclick="showAzkar('evening')" class="btn-azkar">أذكار المساء</button>
+    </div>
+
+    <div id="display-azkar">
+        اختر أذكار الصباح أو المساء لتبدأ القراءة
+    </div>
+</section>
+
+<button onclick="location.href='index.html'"
+style="display:block;margin:20px auto;background:#16a085;color:white;border:none;padding:12px 25px;border-radius:50px;font-weight:bold;">
+    🔙 العودة للصفحة الرئيسية
+</button>
+
+<script>
+    let count = 0;
+    let wordIndex = 0;
+    const words = ["سُبْحَانَ اللَّهِ", "الْحَمْدُ لِلَّهِ", "لَا إِلَهَ إِلَّا اللَّهُ", "اللَّهُ أَكْبَرُ", "اللهم صلي و سلم و بارك علي سيدنا محمد ", "سبحان الله و بحمده", "سبحان الله العظيم", "سبحان الله و الحمد لله", "سبحان الله العظيم و بحمده", "سبحان الله وبحمده سبحان الله العظيم", "لا الله الا الله وحده لا شريك له له الملك و له الحمد و هوا علي كل شئ قدير", "لا حول ولا قوة الا بالله", "الحمد لله رب العالمين", "استغفر الله", "سبحان الله و الحمد لله و الله اكبر", "لا اله الا الله", "الله أكبر", "الحمد لله حمدا كثيرا طيبا مباركا فيه", "الله أكبر كبيرا و الحمد لله كثيرا و سبحان الله بكرة و اصيلا", "الهم صلي علي محمد و علي ال محمد كما صليت علي ابراهيم و علي ال ابراهيم انك حميد مجيد اللهم بارك علي محمد و علي ال محمد كما باركت علي ابرهيم و علي ال ابراهيم في العالمين انك حميد مجيد"];
+
+    function countUp() {
+        count++;
+        document.getElementById("counter").innerText = count;
+        if (count % 1 === 0) {
+            wordIndex = (wordIndex + 1) % words.length;
+            document.getElementById("tasbeeh-text").innerText = words[wordIndex];
+        }
+    }
+
+    function resetCounter() {
+        count = 0;
+        wordIndex = 0;
+        document.getElementById("counter").innerText = 0;
+        document.getElementById("tasbeeh-text").innerText = words[0];
+    }
+
+    const azkarData = {
+        morning: [
+            "أَصْـبَحْنا وَأَصْـبَحَ المُـلْكُ للهِ، وَالحَمدُ للهِ، لا إلهَ إلاّ اللّهُ وَحدَهُ لا شَريكَ لهُ.",
+            "اللّهـمَّ أَنْتَ رَبِّـي لا إلهَ إلاّ أَنْتَ، خَلَقْتَني وَأَنا عَبْدُك.",
+            "رَضيـتُ بِاللهِ رَبَّـاً، وَبِالإسْلامِ ديـناً، وَبِمُحَـمَّدٍ ﷺ نَبِيّـاً.",
+            "اللّهُـمَّ ما أَصْبَـحَ بي مِـنْ نِعْـمَةٍ فَمِـنْكَ وَحْـدَكَ.",
+            "حَسْبِـيَ اللهُ لا إلهَ إلاّ هُوَ، عَلَـيْهِ تَوَكَّـلْتُ.",
+            "بِسـمِ اللهِ الذي لا يَضُـرُّ مَعَ اسمِـهِ شَيء.",
+            "سُبْحـانَ اللهِ وَبِحَمْـدِهِ (100 مرة)."
+        ],
+
+        evening: [
+            "أَمْسَيْنا وَأَمْسَى المُـلْكُ للهِ، وَالحَمدُ للهِ، لا إلهَ إلاّ اللّهُ وَحدَهُ لا شَريكَ لهُ.",
+            "اللّهـمَّ أَنْتَ رَبِّـي لا إلهَ إلاّ أَنْتَ.",
+            "رَضيـتُ بِاللهِ رَبَّـاً، وَبِالإسْلامِ ديـناً، وَبِمُحَـمَّدٍ ﷺ نَبِيّـاً.",
+            "اللّهُـمَّ ما أَمْسـى بي مِـنْ نِعْـمَةٍ فَمِـنْكَ وَحْـدَكَ.",
+            "حَسْبِـيَ اللهُ لا إلهَ إلاّ هُوَ.",
+            "بِسـمِ اللهِ الذي لا يَضُـرُّ مَعَ اسمِـهِ شَيء.",
+            "سُبْحـانَ اللهِ وَبِحَمْـدِهِ (100 مرة)."
+        ]
+    };
+
+    let activeType = null;
+    function showAzkar(type) {
+        const display = document.getElementById("display-azkar");
+
+        if (activeType === type) {
+            display.innerHTML = "اختر أذكار الصباح أو المساء لتبدأ القراءة";
+            activeType = null;
+        } else {
+            display.innerHTML = azkarData[type]
+                .map(z => `<div class="zekr-card">${z}</div>`)
+                .join("");
+            activeType = type;
+        }
+    }
+</script>
+
+</body>
+</html>
